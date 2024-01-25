@@ -1,13 +1,19 @@
+import { lazy } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import HomePage from '@/pages/HomePage/HomePage';
-
 import { ROUTES } from './routes';
+
+const HomePage = lazy(() => import('@/pages/HomePage/HomePage'));
+const PostPage = lazy(() => import('@/pages/PostPage/PostPage'));
 
 const PAGES = [
   {
     url: ROUTES.BASE,
     page: <HomePage />,
+  },
+  {
+    url: ROUTES.SELECTED_POST,
+    page: <PostPage />,
   },
 ];
 
