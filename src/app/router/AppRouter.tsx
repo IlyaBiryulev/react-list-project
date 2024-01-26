@@ -8,7 +8,7 @@ const PostPage = lazy(() => import('@/pages/PostPage/PostPage'));
 
 const PAGES = [
   {
-    url: ROUTES.BASE,
+    url: ROUTES.BASE_ROUTE,
     page: <HomePage />,
   },
   {

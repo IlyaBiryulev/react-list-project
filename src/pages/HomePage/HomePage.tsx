@@ -1,4 +1,5 @@
 import { ChangeEvent, useEffect, useMemo, useState } from 'react';
+import { Typography } from '@mui/material';
 
 import { useAppDispatch, useAppSelector } from '@/app/store/hook/redux';
 
@@ -8,13 +9,15 @@ import SearchPost from '@/features/SearchPost/SearchPost';
 import { setPage } from '@/entities/page/api/pageSlice';
 import { useGetPostsQuery } from '@/entities/post/api';
 
+import { CustomLoader } from '@/shared/ui/CustomLoader/CustomLoader';
 import { PageWrapper } from '@/shared/ui/PageWrapper/PageWrapper';
 
 const HomePage = () => {
-  /* const [page, setPage] = useState(1); */
   const [searchQuery, setSearchQuery] = useState('');
+
   const dispatch = useAppDispatch();
   const { pageNumber } = useAppSelector((state) => state.pageReducer);
+
   const { data: posts = [], isLoading, isFetching } = useGetPostsQuery(pageNumber);
 
   const searchPosts = useMemo(() => {
@@ -42,8 +45,12 @@ const HomePage = () => {
 
   return (
     <PageWrapper>
+      <Typography variant="h3" textAlign="center">
+        POST LIST
+      </Typography>
       <SearchPost value={searchQuery} onChange={handleChange} />
       {searchPosts && <PostsList posts={searchPosts} isLoading={isLoading} />}
+      {isFetching && <CustomLoader />}
     </PageWrapper>
   );
 };

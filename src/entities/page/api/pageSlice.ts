@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-export interface pageState {
-  pageNumber: number;
-}
+import { PageNum } from '../model/types';
 
-const initialState: pageState = {
+const initialState: PageNum = {
   pageNumber: 1,
 };
 

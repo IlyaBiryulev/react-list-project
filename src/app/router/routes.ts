@@ -1,4 +1,4 @@
 export const ROUTES = {
-  BASE: '/',
-  SELECTED_POST: '/:id',
+  BASE_ROUTE: 'react-list-project/',
+  SELECTED_POST: 'react-list-project/:id',
 };

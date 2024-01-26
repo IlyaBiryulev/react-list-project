@@ -15,7 +15,7 @@ export const PostsList = ({ posts, isLoading }: Props) => {
   const nav = useNavigate();
 
   const handleMoreClick = (id: number) => {
-    nav(`/${id}`);
+    nav(`${id}`);
   };
 
   return (
